@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.noffel.timetable">
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher2"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
+        <activity
+            android:name="com.example.noffel.timetable.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.noffel.timetable.EditorActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.noffel.timetable.MainActivity" />
+        </activity>
+
+        <provider
+            android:name="com.example.noffel.timetable.timetableProvider"
+            android:authorities="com.example.noffel.timetable"
+            android:exported="false" />
+
+        <receiver android:name="com.example.noffel.timetable.Notification_reciver" />
+        <receiver android:name="com.example.noffel.timetable.Widgets">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget" />
+        </receiver>
+
+        <activity
+            android:name="com.example.noffel.timetable.SettingsActivity"
+            android:label="Settings">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.noffel.timetable.MainActivity" />
+        </activity>
+        <activity android:name="com.example.noffel.timetable.AboutActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.noffel.timetable.MainActivity" />
+        </activity>
+
+        <service android:name="com.example.noffel.timetable.widgetService" />
+        <service android:name="com.example.noffel.timetable.NotificationService" />
+
+        <activity
+            android:name="com.example.noffel.timetable.ProjectsActivity"
+            android:label="Add Projects"
+            android:windowSoftInputMode="stateVisible|adjustPan|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.noffel.timetable.ProjectShowActivity" />
+        </activity>
+        <activity
+            android:name="com.example.noffel.timetable.ProjectShowActivity"
+            android:label="Projects">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.noffel.timetable.MainActivity" />
+        </activity>
+
+
+        <activity
+            android:name="com.example.noffel.timetable.SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+
+        <activity android:name="com.example.noffel.timetable.Thursday" />
+        <activity android:name="com.example.noffel.timetable.Friday" />
+        <activity android:name="com.example.noffel.timetable.AttendenceActivity"
+            android:label="Attendence Manager"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.noffel.timetable.MainActivity" />
+        </activity>
+        <activity android:name="com.example.noffel.timetable.Poll"
+            android:label="Poll"
+            >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.noffel.timetable.MainActivity" />
+        </activity>
+    </application>
+
+</manifest>
