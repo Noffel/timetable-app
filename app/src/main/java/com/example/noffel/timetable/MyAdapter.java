@@ -38,6 +38,7 @@ public class MyAdapter extends ArrayAdapter<String> {
 //        TextView floortv = (TextView) row.findViewById(R.id.list_single_time);
 //        TextView buildingtv = (TextView) row.findViewById(R.id.subject);
 //        TextView teachertv = (TextView) row.findViewById(R.id.room);
+//        TextView teachertv = (TextView) row.findViewById(R.id.room);
 
         if(tempSt != null && !tempSt.contains("null") && !tempSt.equals("")) {
             timetv.setText(displayTime[position]);
